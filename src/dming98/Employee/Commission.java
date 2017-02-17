@@ -1,5 +1,6 @@
 package dming98.Employee;
 
+import javax.swing.border.TitledBorder;
 
 public class Commission extends Employee {
 	private float salary;
@@ -43,7 +44,7 @@ public class Commission extends Employee {
 	public void calculatePay(){
 		float totalPay;
 		if (commissionSales > threshold) 
-			totalPay = (salary/ 24) + ((commissionSales - threshold) * commissionRate);
+			totalPay = (salary/ 24) + ((commissionSales - threshold) * (commissionRate/100));
 		else 
 			totalPay = (salary/24);
 		
@@ -52,7 +53,8 @@ public class Commission extends Employee {
 	}
 	
 	public void print(){
-		System.out.print("Commission: The " + this.getTitle() + " " + this.getFirstName() + " " + this.getLastName() + ", ID: " + this.getID() + ", earns a salary of " + this.getSalary() +  " with a commsion rate of " + this.getCommissionRate() + " and made " + this.getCommissionSales() + " sales with a threshold of " + this.getThreshold() + ".");
+		System.out.printf("Commission: The %s %s %s, ID: %d , earns a salary of $%.2f with a commission rate of %.2f and made %.0f sales with a threshold of %.0f for a total of $%.2f.\n",
+				this.getTitle(), this.getFirstName(), this.getLastName(), this.getID() ,salary, commissionRate, commissionSales, threshold, this.getTotalPay());
 	}
 	
 	public int compareTo(Employee otherEmployee){

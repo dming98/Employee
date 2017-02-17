@@ -47,11 +47,13 @@ public class Hourly extends Employee {
 	}
 	
 	public void print(){
-		System.out.print("Hourly: The " + this.getTitle() + " " + this.getFirstName() + " " + this.getLastName() + ", ID: " + this.getID() + ", earns a wage of " + this.getHourlyRate() +  " for " + this.getHoursWorked() + " hours this week");
-		if(this.getOvertime()==true)
-			System.out.println(" and recieves overtime.");
-		else
-			System.out.println(".");
+		String overTime = "";
+		if(this.getOvertime()){
+			overTime = " and receives overtime";
+		}
+		
+		System.out.printf("Hourly: The %s %s %s, ID: %d , earns a wage of $%.2f for %.2f hours this week%s for a total of $%.2f.\n",
+				this.getTitle(), this.getFirstName(), this.getLastName(), this.getID() , hourlyRate, hoursWorked, overTime, this.getTotalPay());
 	}
 	
 	public int compareTo(Employee otherEmployee){

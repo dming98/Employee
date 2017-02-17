@@ -24,7 +24,9 @@ public class Salaried extends Employee{
 	}
 	
 	public void print(){
-		System.out.println("Salaried: The " + this.getTitle() + " " + this.getFirstName() + " " + this.getLastName() + ", ID: " + this.getID() + ", earns a salary of " + this.getSalary() + "." );
+		System.out.printf("Salaried: The %s %s %s, ID: %d , earns a salary of $%.2f for a total of $%.2f.\n",
+				this.getTitle(), this.getFirstName(), this.getLastName(), this.getID() ,salary, this.getTotalPay());
+	
 	}
 	
 	public int compareTo(Employee otherEmployee){

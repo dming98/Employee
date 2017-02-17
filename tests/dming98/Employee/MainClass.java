@@ -16,5 +16,7 @@ public class MainClass {
 		
 		empList = EmployeeDataAnalyzer.employeeReader(dataFile, numEmp);
 		EmployeeDataAnalyzer.sortEmployees(empList);
+		EmployeeDataAnalyzer.calulatePay(empList);
+		EmployeeDataAnalyzer.printEmployees(empList);
 	}
 }
