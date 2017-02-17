@@ -28,8 +28,9 @@ public class EmployeeDataAnalyzer {
 				float commissionRate = in.nextFloat();
 				float threshold = in.nextFloat();
 				float commissionSales = in.nextFloat();
-				 
-				employees[employeeCount] = new Commission(ID, first, last, title, salary, commissionRate, threshold); 
+				Commission employee = new Commission(ID, first, last, title, salary, commissionRate, threshold);
+				employee.setCommissionSales(commissionSales);
+				employees[employeeCount] =  employee;
 				
 			}else if (type.compareTo("S")==0){
 				int ID = in.nextInt();
@@ -37,8 +38,8 @@ public class EmployeeDataAnalyzer {
 				String last = in.next();
 				String title = in.next();
 				float salary = in.nextFloat();
-				
-				employees[employeeCount] = new Salaried(ID, first, last, title, salary);
+				Salaried employee = new Salaried(ID, first, last, title, salary);
+				employees[employeeCount] = employee;
 				
 			}else if (type.compareTo("H")==0){
 				boolean getsOvertime;
@@ -53,8 +54,9 @@ public class EmployeeDataAnalyzer {
 				else
 					getsOvertime = false;
 				float hoursWorked= in.nextFloat();
-				
-				employees[employeeCount] = new Hourly(ID, first, last, title, hourlyRate, getsOvertime); 
+				Hourly employee = new Hourly(ID, first, last, title, hourlyRate, getsOvertime);
+				employee.setHoursWorked(hoursWorked);
+				employees[employeeCount] = employee; 
 				
 			}
 		}
