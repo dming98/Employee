@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class MainClass {
-	public static void main(String[] args){
+	public static void main(String[] args) throws FileNotFoundException{
 		Employee[] empList = null;
 		Scanner console = new Scanner(System.in);
 		

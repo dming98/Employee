@@ -47,13 +47,13 @@ public class Hourly extends Employee {
 	}
 	
 	public void print(){
-		String overTime = "";
+		String overTime = "No";
 		if(this.getOvertime()){
-			overTime = " and receives overtime";
+			overTime = "Yes";
 		}
 		
-		System.out.printf("Hourly: The %s %s %s, ID: %d , earns a wage of $%.2f for %.2f hours this week%s for a total of $%.2f.\n",
-				this.getTitle(), this.getFirstName(), this.getLastName(), this.getID() , hourlyRate, hoursWorked, overTime, this.getTotalPay());
+		System.out.printf("Hourly\t\t%-10s\t%-15s\t\t%4d\t$%.2f\t%.2f\t%s\t$%.2f\n",
+				this.getTitle(), this.getFirstName() + " " + this.getLastName(), this.getID() , hourlyRate, hoursWorked, overTime, this.getTotalPay());
 	}
 	
 	public int compareTo(Employee otherEmployee){

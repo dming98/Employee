@@ -5,14 +5,17 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class EmployeeDataAnalyzer {
+	static double totalPayC=0;
+	static double totalPayH=0;
+	static double totalPayS=0;
 	
-	public static Employee[] employeeReader(String dataFile, int numEmployees){
+	public static Employee[] employeeReader(String dataFile, int numEmployees) throws FileNotFoundException{
 		Employee[] employees = new Employee[numEmployees];
 		Scanner in = null;
 		try {
 			in = new Scanner(new FileReader(dataFile));
 		} catch (FileNotFoundException e) {
-			
+			throw e;
 		}
 		
 		for(int employeeCount = 0; employeeCount < numEmployees; employeeCount++){
@@ -86,13 +89,7 @@ public class EmployeeDataAnalyzer {
 		for(int employeeCount = 0; employeeCount < employees.length; employeeCount++){
 			employees[employeeCount].calculatePay();
 		}
-	}
-	public static void printEmployees(Employee[] employees){
-		double totalPayC=0;
-		double totalPayH=0;
-		double totalPayS=0;
 		for(int employeeCount = 0; employeeCount < employees.length; employeeCount++){
-			employees[employeeCount].print();
 			if(employees[employeeCount] instanceof Commission)
 				totalPayC = totalPayC + employees[employeeCount].getTotalPay();
 			if(employees[employeeCount] instanceof Salaried)
@@ -100,11 +97,28 @@ public class EmployeeDataAnalyzer {
 			if(employees[employeeCount] instanceof Hourly)
 				totalPayH = totalPayH + employees[employeeCount].getTotalPay();
 		}
-		System.out.printf("\n\nThe total pay for Commission is:\t$%.2f\n",totalPayC);
-		System.out.printf("The total pay for Salaried is:\t\t$%.2f\n",totalPayS);
-		System.out.printf("The total pay for Hourly is:\t\t$%.2f\n",totalPayH);
+	}
+	public static void printEmployees(Employee[] employees){
+		System.out.println("Type\t\tTitle\t\tName\t\t\tID\tSalary\t\tRate\tSales\tThres\tTotal");
+		for(int employeeCount = 0; employeeCount < 9; employeeCount++){
+			employees[employeeCount].print();
+		}
+		System.out.printf("\nThe total pay for Commission is:\t$%.2f\n\n",totalPayC);
 		
-		System.out.printf("The total pay for all employees is:\t$%.2f\n",(totalPayC+totalPayH+totalPayS));
+		System.out.println("Type\t\tTitle\t\tName\t\t\tID\tSalary\t\tTotal");
+		for(int employeeCount = 10; employeeCount < 19; employeeCount++){
+			employees[employeeCount].print();
+		}
+		System.out.printf("\nThe total pay for Salaried is:\t\t$%.2f\n\n",totalPayS);
+		
+		
+		System.out.println("Type\t\tTitle\t\tName\t\t\tID\tWage\tHours\tOT\tTotal");
+		for(int employeeCount = 20; employeeCount < 29; employeeCount++){
+			employees[employeeCount].print();
+		}
+		System.out.printf("\nThe total pay for Hourly is:\t\t$%.2f\n",totalPayH);
+		
+		System.out.printf("\n\nThe total pay for all employees is:\t$%.2f\n",(totalPayC+totalPayH+totalPayS));
 	}
 }
 

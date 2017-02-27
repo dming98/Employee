@@ -24,8 +24,8 @@ public class Salaried extends Employee{
 	}
 	
 	public void print(){
-		System.out.printf("Salaried: The %s %s %s, ID: %d , earns a salary of $%.2f for a total of $%.2f.\n",
-				this.getTitle(), this.getFirstName(), this.getLastName(), this.getID() ,salary, this.getTotalPay());
+		System.out.printf("Salaried\t%-10s\t%-18s\t%4d\t$%.2f\t$%.2f\n",
+				this.getTitle(), this.getFirstName() + " " + this.getLastName(), this.getID() ,salary, this.getTotalPay());
 	
 	}
 	

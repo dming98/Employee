@@ -53,8 +53,8 @@ public class Commission extends Employee {
 	}
 	
 	public void print(){
-		System.out.printf("Commission: The %s %s %s, ID: %d , earns a salary of $%.2f with a commission rate of %.2f and made %.0f sales with a threshold of %.0f for a total of $%.2f.\n",
-				this.getTitle(), this.getFirstName(), this.getLastName(), this.getID() ,salary, commissionRate, commissionSales, threshold, this.getTotalPay());
+		System.out.printf("Commission\t%-10s\t%-15s\t\t%d\t$%.2f\t%.2f\t%.0f\t%.0f\t$%.2f.\n",
+				this.getTitle(), this.getFirstName() + " " + this.getLastName(), this.getID() ,salary, commissionRate, commissionSales, threshold, this.getTotalPay());
 	}
 	
 	public int compareTo(Employee otherEmployee){
