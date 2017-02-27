@@ -21,10 +21,14 @@ public abstract class Employee implements Comparable<Employee>{
 	/**
 	 * Nondefault constructor for an Employee.
 	 * 
-	 * @param newID		ID of the employee
-	 * @param newFirst	First name of employee
-	 * @param newLast	Last name of employee
-	 * @param newTitle	Title of employee
+	 * @param newID
+	 *            ID of the employee
+	 * @param newFirst
+	 *            First name of employee
+	 * @param newLast
+	 *            Last name of employee
+	 * @param newTitle
+	 *            Title of employee
 	 */
 	public Employee(int newID, String newFirst, String newLast, String newTitle){
 		ID = newID;

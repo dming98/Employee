@@ -15,11 +15,16 @@ public class Salaried extends Employee{
 	/**
 	 * Nondefault constructor for a salaried employee.
 	 * 
-	 * @param ID		ID of the employee
-	 * @param first		First name of employee
-	 * @param last		Last name of employee
-	 * @param title		Title of employee
-	 * @param newSalary	Salary of employee
+	 * @param ID
+	 *            ID of the employee
+	 * @param first
+	 *            First name of employee
+	 * @param last
+	 *            Last name of employee
+	 * @param title
+	 *            Title of employee
+	 * @param newSalary
+	 *            Salary of employee
 	 */
 	public Salaried(int ID, String first, String last, String title, float newSalary){
 		super(ID, first, last, title);
