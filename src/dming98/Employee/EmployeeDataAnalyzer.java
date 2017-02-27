@@ -9,6 +9,12 @@ public class EmployeeDataAnalyzer {
 	static double totalPayH=0;
 	static double totalPayS=0;
 	
+	/**
+	 * Reads in data and creates and instance of the employee type for each item read.
+	 * 
+	 * @param dataFile	File containing employee data
+	 * @param numEmployees Number of employees contained in the file
+	 */
 	public static Employee[] employeeReader(String dataFile, int numEmployees) throws FileNotFoundException{
 		Employee[] employees = new Employee[numEmployees];
 		Scanner in = null;
@@ -67,6 +73,11 @@ public class EmployeeDataAnalyzer {
 		return employees;
 	}
 	
+	/**
+	 * Bubble sorts the Employees by ID number.
+	 * 
+	 * @param employees Employee array of our employees
+	 */
 	public static void sortEmployees(Employee[] employees){
 		boolean swapped;
 		do{
@@ -79,12 +90,25 @@ public class EmployeeDataAnalyzer {
 			}
 		} while(swapped);
 	}
+	
+	/**
+	 * Swaps employees at two positions.
+	 * 
+	 * @param employees Employee array of our employees
+	 * @param pos1		position of first employee
+	 * @param pos2		position of second employee
+	 */
 	public static void swapEmployees(Employee[] employees, int pos1, int pos2){
 		Employee temp = employees[pos1];
 		employees[pos1] = employees[pos2];
 		employees[pos2] = temp;
 	}
 	
+	/**
+	 * Calculates and sums the total pay for the types of employees.
+	 * 
+	 * @param employees	Employee array of our employees
+	 */
 	public static void calulatePay(Employee[] employees){
 		for(int employeeCount = 0; employeeCount < employees.length; employeeCount++){
 			employees[employeeCount].calculatePay();
@@ -98,6 +122,12 @@ public class EmployeeDataAnalyzer {
 				totalPayH = totalPayH + employees[employeeCount].getTotalPay();
 		}
 	}
+	
+	/**
+	 * Prints the column headings and attributes of all of our employees.
+	 * 
+	 * @param employees	Employee array of our employees
+	 */
 	public static void printEmployees(Employee[] employees){
 		System.out.println("Type\t\tTitle\t\tName\t\t\tID\tSalary\t\tRate\tSales\tThres\tTotal");
 		for(int employeeCount = 0; employeeCount < 9; employeeCount++){
