@@ -1,23 +1,22 @@
 package dming98.Employee;
 
-
-public abstract class Employee implements Comparable<Employee>{
+public abstract class Employee implements Comparable<Employee> {
 	private int ID;
 	private String firstName;
 	private String lastName;
 	private String title;
 	private float totalPay;
-	
+
 	/**
 	 * Default constructor for an Employee.
 	 */
-	public Employee(){
+	public Employee() {
 		ID = 0;
 		firstName = "Unknown";
 		lastName = "Unknown";
 		title = "Unknown";
 	}
-	
+
 	/**
 	 * Nondefault constructor for an Employee.
 	 * 
@@ -30,100 +29,110 @@ public abstract class Employee implements Comparable<Employee>{
 	 * @param newTitle
 	 *            Title of employee
 	 */
-	public Employee(int newID, String newFirst, String newLast, String newTitle){
+	public Employee(int newID, String newFirst, String newLast, String newTitle) {
 		ID = newID;
 		firstName = newFirst;
 		lastName = newLast;
 		title = newTitle;
 	}
-	
-	
+
 	/**
 	 * Gets the ID number of an employee.
 	 * 
-	 * @return ID	Employees identification #
+	 * @return ID Employees identification #
 	 */
-	public int getID(){
+	public int getID() {
 		return ID;
 	}
-	
+
 	/**
 	 * Gets the first name of an employee.
 	 * 
-	 * @return firstName	First name of employee
+	 * @return firstName First name of employee
 	 */
-	public String getFirstName(){
+	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	/**
 	 * Gets the last name of an employee.
 	 * 
-	 * @return lastName	Last name of employee
+	 * @return lastName Last name of employee
 	 */
-	public String getLastName(){
+	public String getLastName() {
 		return lastName;
 	}
-	
+
 	/**
 	 * Gets the title of an employee.
 	 * 
-	 * @return title	Employee's job title
+	 * @return title Employee's job title
 	 */
-	public String getTitle(){
+	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * Gets the total pay of an employee.
 	 * 
-	 * @return totalPay	Employee's total pay
+	 * @return totalPay Employee's total pay
 	 */
-	public float getTotalPay(){
+	public float getTotalPay() {
 		return totalPay;
 	}
-	
+
 	/**
 	 * Sets the total pay of an employee.
 	 * 
-	 * @param newPay	Employee's new total pay
+	 * @param newPay
+	 *            Employee's new total pay
 	 */
-	public void setTotalPay(float newPay){
-		totalPay=newPay;
+	public void setTotalPay(float newPay) {
+		totalPay = newPay;
 	}
-	
+
 	/**
 	 * Compares the current employee to another employee
 	 * 
-	 * @param otherEmployee	Employee to be compared to
-	 * @return 1 if true	-1 if false
+	 * @param otherEmployee
+	 *            Employee to be compared to
+	 * @return 0 if true -1 if less 1 if greater
 	 */
-	public int compareTo(Employee otherEmployee){
-		int yes = 1;
-		int no = -1;
-		
-		if(otherEmployee instanceof Commission ){
-			if(this.getID() == otherEmployee.getID())
-				return yes;
-		} else if(otherEmployee instanceof Salaried ){
-			if(this.getID() == otherEmployee.getID())
-				return yes;
-		} else if(otherEmployee instanceof Hourly ){
-			if(this.getID() == otherEmployee.getID())
-				return yes;
+	public int compareTo(Employee otherEmployee) {
+		int compare = -1;
+		if (otherEmployee instanceof Commission && this instanceof Commission) {
+			if (this.getID() == otherEmployee.getID())
+				compare = 0;
+			else if (this.getID() > otherEmployee.getID())
+				compare = 1;
+			else
+				compare = -1;
+		} else if (otherEmployee instanceof Salaried && this instanceof Salaried) {
+			if (this.getID() == otherEmployee.getID())
+				compare = 0;
+			else if (this.getID() > otherEmployee.getID())
+				compare = 1;
+			else
+				compare = -1;
+		} else if (otherEmployee instanceof Hourly && this instanceof Hourly) {
+			if (this.getID() == otherEmployee.getID())
+				compare = 0;
+			else if (this.getID() > otherEmployee.getID())
+				compare = 1;
+			else
+				compare = -1;
 		}
-		return no;
+		return compare;
 	}
-	
+
 	/**
 	 * Calculates pay of an employee.
 	 */
 	public abstract void calculatePay();
-	
+
 	/**
 	 * Prints the attributes of an employee.
 	 */
 	public abstract void print();
-	
-	
+
 }

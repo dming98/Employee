@@ -107,16 +107,18 @@ public class Hourly extends Employee {
 	 * 
 	 * @param otherEmployee
 	 *            Employee to be compared to
-	 * @return 1 if true -1 if false
+	 * @return 0 if true -1 if less 1 if greater
 	 */
 	public int compareTo(Employee otherEmployee) {
-		int yes = 1;
-		int no = -1;
-
-		if (otherEmployee instanceof Hourly) {
+		int compare = -1;
+		if (otherEmployee instanceof Hourly && this instanceof Hourly) {
 			if (this.getID() == otherEmployee.getID())
-				return yes;
+				compare = 0;
+			else if (this.getID() > otherEmployee.getID())
+				compare = 1;
+			else
+				compare = -1;
 		}
-		return no;
+		return compare;
 	}
 }
